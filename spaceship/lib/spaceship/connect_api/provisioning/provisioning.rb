@@ -27,6 +27,11 @@ module Spaceship
           provisioning_request_client.get("bundleIds/#{bundle_id_id}", params)
         end
 
+        def get_bundle_id_profiles(bundle_id_id: {})
+          params = provisioning_request_client.build_params(limit: nil)
+          provisioning_request_client.get("bundleIds/#{bundle_id_id}/profiles", params)
+        end
+
         def post_bundle_id(name:, platform:, identifier:, seed_id:)
           attributes = {
             name: name,
